@@ -1,0 +1,67 @@
+1. Create test category
+{
+        "ID": 7,
+        "CreatedAt": "2024-12-26T02:21:58.104730856+03:00",
+        "UpdatedAt": "2024-12-26T02:21:58.104730856+03:00",
+        "DeletedAt": null,
+        "name": "Электроника 52",
+        "products": null
+}
+2. Create test product
+{
+        "ID": 7,
+        "CreatedAt": "2024-12-26T02:21:58.115018901+03:00",
+        "UpdatedAt": "2024-12-26T02:21:58.115018901+03:00",
+        "DeletedAt": null,
+        "name": "Веник new 52",
+        "price": 265.5,
+        "categoryID": 2
+}
+3. Get test product
+{
+        "ID": 7,
+        "CreatedAt": "2024-12-26T02:21:58.115018+03:00",
+        "UpdatedAt": "2024-12-26T02:21:58.115018+03:00",
+        "DeletedAt": null,
+        "name": "Веник new 52",
+        "price": 265.5,
+        "categoryID": 2
+}
+4. Get test category
+{
+        "ID": 7,
+        "CreatedAt": "2024-12-26T02:21:58.10473+03:00",
+        "UpdatedAt": "2024-12-26T02:21:58.10473+03:00",
+        "DeletedAt": null,
+        "name": "Электроника 52",
+        "products": null
+}
+5. Get products by category
+Products by category 1:
+{
+        "ID": 2,
+        "CreatedAt": "2024-12-25T19:19:35.150458+03:00",
+        "UpdatedAt": "2024-12-25T19:19:35.150458+03:00",
+        "DeletedAt": null,
+        "name": "Веник 2",
+        "price": 211.5,
+        "categoryID": 2
+}
+{
+        "ID": 6,
+        "CreatedAt": "2024-12-26T01:34:03.857182+03:00",
+        "UpdatedAt": "2024-12-26T01:34:03.857182+03:00",
+        "DeletedAt": null,
+        "name": "Веник new 26",
+        "price": 236.5,
+        "categoryID": 2
+}
+{
+        "ID": 7,
+        "CreatedAt": "2024-12-26T02:21:58.115018+03:00",
+        "UpdatedAt": "2024-12-26T02:21:58.115018+03:00",
+        "DeletedAt": null,
+        "name": "Веник new 52",
+        "price": 265.5,
+        "categoryID": 2
+}

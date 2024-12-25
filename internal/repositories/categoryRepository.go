@@ -6,22 +6,22 @@ import (
 	"gorm.io/gorm"
 )
 
-type CategoryRepositoryInterface interface {
+type CategoryRepository interface {
 	Create(category *models.Category) (uint, error)
 	GetByID(id uint) (*models.Category, error)
 	Delete(id uint) error
 }
 
-type CategoryRepository struct {
+type categoryRepository struct {
 	db *gorm.DB
 }
 
-func CreateCategoryRepository(db *gorm.DB) *CategoryRepository {
-	return &CategoryRepository{db: db}
+func CreateCategoryRepository(db *gorm.DB) CategoryRepository {
+	return &categoryRepository{db: db}
 }
 
 // category := models.Category{Name: name, Products: []models.Product{}}
-func (r *CategoryRepository) Create(category *models.Category) (uint, error) {
+func (r *categoryRepository) Create(category *models.Category) (uint, error) {
 	result := r.db.Create(&category)
 	if result.Error != nil {
 		return 0, result.Error
@@ -29,7 +29,7 @@ func (r *CategoryRepository) Create(category *models.Category) (uint, error) {
 	return category.ID, nil
 }
 
-func (r *CategoryRepository) GetByID(id uint) (*models.Category, error) {
+func (r *categoryRepository) GetByID(id uint) (*models.Category, error) {
 	var category models.Category
 	result := r.db.First(&category, id)
 	if result.Error != nil {
@@ -38,8 +38,13 @@ func (r *CategoryRepository) GetByID(id uint) (*models.Category, error) {
 	return &category, nil
 }
 
-func (r *CategoryRepository) Delete(id uint) error {
-	result := r.db.Delete(&models.Category{}, id)
+func (r *categoryRepository) Delete(id uint) error {
+	// Unscoped() - force delete
+	result := r.db.Where("category_id = ?", id).Delete(&models.Product{})
+	if result.Error != nil {
+		return result.Error
+	}
+	result = r.db.Delete(&models.Category{}, id)
 	if result.Error != nil {
 		return result.Error
 	}
