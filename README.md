@@ -72,5 +72,12 @@ The implementation of this application is located in the `internal` folder and h
 10 directories, 16 files
 ```
 
+## Results
+
+Tests for services shows this result:
+```
+ok  	orm-tests/internal/services	0.010s	coverage: 85.7% of statements
+```
+
 <hr>
-It was created on 25.12.24.
+It was created on 25.12.24
